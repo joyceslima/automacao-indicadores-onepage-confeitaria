@@ -1,12 +1,13 @@
-<h1 align="center"> Confeitaria Doces & Sorrisos </h1>
+<h1  align="center"> Envio Automatizado OnePage  </h1>
 
 <div align="center">
-<img src="https://github.com/user-attachments/assets/5ee3a97c-cf2c-48e7-84f4-b20acf3b1d5c" />
+<img src="https://github.com/user-attachments/assets/5ee3a97c-cf2c-48e7-84f4-b20acf3b1d5c" width="450px" />
 </div>
 
-Este projeto automatiza o envio de e-mails, diariamente, com os indicadores de desempenho das lojas da Confeitaria (fictícia) Doces & Sorrisos, incluindo informações sobre faturamento (diário e anual), diversidade de produtos e ticket médio.
 
-### Objetivo
+<p align="center"> Este projeto automatiza o envio de e-mails, diariamente, com os indicadores de desempenho das lojas da Confeitaria (fictícia) Doces & Sorrisos, incluindo informações sobre faturamento (diário e anual), diversidade de produtos e ticket médio. </p>
+
+###  :dart:Objetivo
 
 O objetivo deste projeto é gerar e enviar automaticamente relatórios sobre o desempenho das 25 lojas da confeitaria espalhadas pelos shoppings do Brasil. 
 
@@ -22,12 +23,12 @@ O envio é feito por e-mail, com anexos contendo rankings de vendas, o que permi
 
     pathlib: Para manipulação de caminhos de arquivos.
 
-### Pré-requisitos
+### :wrench:Pré-requisitos
 
     Python 3.x (certifique-se de instalar as versões mais recentes do Python).
     
     Bibliotecas:
-        pandas: pip install pandas
+        pandas: pip install pandas 
         win32com (necessário para interação com o Outlook): pip install pywin32
         pathlib: Biblioteca padrão do Python.
 
@@ -37,57 +38,56 @@ O envio é feito por e-mail, com anexos contendo rankings de vendas, o que permi
 
     Outlook Configurado: A integração com o Outlook requer que o Microsoft Outlook esteja configurado no ambiente local onde o script será executado.
 
-### Como Usar
+### :computer:Como Usar
 
-Clone este repositório para sua máquina local. 
+- Clone este repositório para sua máquina local. 
 
-Navegue até o diretório do projeto. 
+- Navegue até o diretório do projeto. 
 
-Abra o arquivo Automacao-de-Processo.ipynb em um ambiente Jupyter Notebook. Execute as células de código sequencialmente para carregar e analisar os dados. 
+- Abra o arquivo Automacao-de-Processo.ipynb em um ambiente Jupyter Notebook.
+  
+- Execute as células de código sequencialmente para carregar e analisar os dados. 
 
-Estrutura dos Dados Os dados são carregados a partir de um arquivo CSV:
-Configuração Inicial
-    Certifique-se de ter as bibliotecas necessárias instaladas e o Outlook configurado corretamente.
-    Prepare os relatórios Excel (ranking diário e anual), que serão gerados com os dados das lojas.
+#### Configuração Inicial
 
-Execução do Script
-    O script é executado para gerar os relatórios e enviar os e-mails de forma automatizada.
-    Modifique as variáveis no código, como o caminho dos arquivos de relatórios e o destinatário do e-mail, conforme necessário.
+> Certifique-se de ter as bibliotecas necessárias instaladas e o Outlook configurado corretamente.
 
-*Exemplo de Execução*
+> Prepare os relatórios Excel (ranking diário e anual), que serão gerados com os dados das lojas.
 
-import win32com.client
-import pathlib
+#### Execução do Script
+> O script é executado para gerar os relatórios e enviar os e-mails de forma automatizada.
 
-Criar uma instância do Outlook
-outlook = win32com.client.Dispatch("Outlook.Application")
-mail = outlook.CreateItem(0)  # Criar um novo e-mail
+>Modifique as variáveis no código, como o caminho dos arquivos de relatórios e o destinatário do e-mail, conforme necessário.
 
-Definir informações do e-mail
-mail.Subject = "Ranking Diário e Anual das Lojas"
-mail.To = "diretoria@empresa.com"
-mail.Body = "Prezados(as), segue em anexo o ranking diário e anual das lojas."
+ *Exemplo de Execução*
 
-Definir o caminho dos anexos
-caminho_backup = pathlib.Path.cwd()
-dia_indicador = "2025-01-29"  # Substitua por uma variável de data real
+     import win32com.client
+     import pathlib
+       
+1. Criar uma instância do Outlook
+    1. outlook = win32com.client.Dispatch("Outlook.Application")
+    2. mail = outlook.CreateItem(0)  # Criar um novo e-mail
 
-Anexar arquivos
-try:
-    attachment1 = caminho_backup / f'{dia_indicador}_Ranking Anual.xlsx'
-    attachment2 = caminho_backup / f'{dia_indicador}_Ranking Dia.xlsx'
-    mail.Attachments.Add(str(attachment1))
-    mail.Attachments.Add(str(attachment2))
+2. Definir informações do e-mail
+    1. mail.Subject = "Ranking Diário e Anual das Lojas"
+    2. mail.To = "diretoria@empresa.com"
+    3. mail.Body = "Prezados(as), segue em anexo o ranking diário e anual das lojas."
 
-Enviar o e-mail
-    mail.Send()
-    print("E-mail enviado com sucesso!")
+3. Definir o caminho dos anexos
+    1. caminho_backup = pathlib.Path.cwd()
+    2. dia_indicador = "2025-01-29"  # Substitua por uma variável de data real
 
-except Exception as e:
-    print(f"Erro ao anexar arquivos ou enviar e-mail: {e}")
+4. Anexar arquivos
+- [x] attachment1 = caminho_backup / f'{dia_indicador}_Ranking Anual.xlsx'
+- [x] attachment2 = caminho_backup / f'{dia_indicador}_Ranking Dia.xlsx'
+- [x] mail.Attachments.Add(str(attachment1))
+- [x] mail.Attachments.Add(str(attachment2))
 
+5.  Enviar o e-mail
+      1. mail.Send()
+      2. print("E-mail enviado com sucesso!")
 
-### Possíveis Erros e Soluções
+### :exclamation:Possíveis Erros e Soluções
 
     "O item foi movido ou excluído."
         Esse erro ocorre quando o e-mail já foi movido ou excluído no Outlook. Certifique-se de criar um novo e-mail ao invés de tentar editar um e-mail antigo.
