@@ -1,11 +1,15 @@
-<h1  align="center"> Envio Automatizado OnePage  </h1>
+<h1  align="center"> Automação de Processos - Envio OnePage  </h1>
 
 <div align="center">
 <img src="https://github.com/user-attachments/assets/5ee3a97c-cf2c-48e7-84f4-b20acf3b1d5c" width="450px" />
 </div>
 
 
-<p align="center"> Este projeto automatiza o envio de e-mails, diariamente, com os indicadores de desempenho das lojas da Confeitaria (fictícia) Doces & Sorrisos, incluindo informações sobre faturamento (diário e anual), diversidade de produtos e ticket médio. </p>
+<h4 align="center"> Este projeto automatiza o envio de e-mails, diariamente, com os indicadores de desempenho das lojas da Confeitaria (fictícia) Doces & Sorrisos, incluindo informações sobre faturamento (diário e anual), diversidade de produtos e ticket médio. </h4
+
+
+---
+
 
 ###  :dart:Objetivo
 
@@ -13,32 +17,42 @@ O objetivo deste projeto é gerar e enviar automaticamente relatórios sobre o d
 
 O envio é feito por e-mail, com anexos contendo rankings de vendas, o que permite à diretoria acompanhar de forma eficiente as métricas de cada loja.
 
-### Tecnologias Utilizadas
+---
 
-    Python: Linguagem principal utilizada para o desenvolvimento;
+### ⚙️Bibliotecas Utilizadas
 
-    pandas: Manipulação de dados (cálculo de indicadores de desempenho, como faturamento, ticket médio e diversidade de produtos);
+O código foi desenvolvido em Python utilizando um Jupyter Notebook, e as bibliotecas utilizadas foram:
 
-    win32com: Para integração com o Microsoft Outlook e envio de e-mails automatizados;
-
-    pathlib: Para manipulação de caminhos de arquivos.
-
-### :wrench:Pré-requisitos
-
-    Python 3.x (certifique-se de instalar as versões mais recentes do Python).
+    ```bash
+    pip install pandas pywin32 pathlib 
+    ```
     
-    Bibliotecas:
-        pandas: pip install pandas 
-        win32com (necessário para interação com o Outlook): pip install pywin32
-        pathlib: Biblioteca padrão do Python.
+Python: Linguagem principal utilizada para o desenvolvimento;
 
-### Arquivos Necessários
+pandas: Manipulação de dados (cálculo de indicadores de desempenho, como faturamento, ticket médio e diversidade de produtos);
 
-    Relatórios Excel: Os relatórios diários e anuais das lojas devem ser gerados antes de serem anexados ao e-mail. O caminho desses relatórios precisa ser configurado corretamente no código.
+win32com: Para integração com o Microsoft Outlook e envio de e-mails automatizados;
 
-    Outlook Configurado: A integração com o Outlook requer que o Microsoft Outlook esteja configurado no ambiente local onde o script será executado.
+pathlib: Para manipulação de caminhos de arquivos.
 
-### :computer:Como Usar
+---
+
+
+### 🗂️ Arquivos Necessários
+
+Relatórios Excel: Os relatórios diários e anuais das lojas devem ser gerados antes de serem anexados ao e-mail. O caminho desses relatórios precisa ser configurado corretamente no código.
+
+Outlook Configurado: A integração com o Outlook requer que o Microsoft Outlook esteja configurado no ambiente local onde o script será executado.
+
+---
+
+### 👩🏾‍💻 Como Usar
+
+*Pré Requisitos:*
+
+**Python 3.x** (certifique-se de instalar as versões mais recentes do Python);
+
+**Jupyter Notebook**
 
 - Clone este repositório para sua máquina local. 
 
@@ -87,14 +101,22 @@ O envio é feito por e-mail, com anexos contendo rankings de vendas, o que permi
       1. mail.Send()
       2. print("E-mail enviado com sucesso!")
 
+---
+
 ### :exclamation:Possíveis Erros e Soluções
 
-    "O item foi movido ou excluído."
-        Esse erro ocorre quando o e-mail já foi movido ou excluído no Outlook. Certifique-se de criar um novo e-mail ao invés de tentar editar um e-mail antigo.
+"O item foi movido ou excluído."
+    Esse erro ocorre quando o e-mail já foi movido ou excluído no Outlook. Certifique-se de criar um novo e-mail ao invés de tentar editar um e-mail antigo.
 
-    "O arquivo não foi encontrado."
-        Verifique se o caminho dos arquivos anexados está correto. Utilize a biblioteca pathlib para garantir que o caminho seja validado corretamente.
+"O arquivo não foi encontrado."
+    Verifique se o caminho dos arquivos anexados está correto. Utilize a biblioteca pathlib para garantir que o caminho seja validado corretamente.
 
-    "Erro de formatação no corpo do e-mail."
-        Caso o corpo do e-mail não esteja sendo renderizado corretamente, revise o código HTML para garantir que as tags estão bem formatadas.
+"Erro de formatação no corpo do e-mail."
+    Caso o corpo do e-mail não esteja sendo renderizado corretamente, revise o código HTML para garantir que as tags estão bem formatadas.
+
+---
+
+## 🤝 Contribuições
+
+Sinta-se à vontade para abrir uma **issue** para contribuir com melhorias no projeto.
 
